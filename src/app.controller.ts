@@ -6,7 +6,11 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  message(): any {
+    this.appService.sendMessage('Hello this is a test message');
+    return {
+      message: 'Message sent successfully',
+      timestamp: new Date().toISOString(),
+    };
   }
 }
